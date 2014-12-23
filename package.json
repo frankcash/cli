@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "MOCK_USB=1 tap test/*.js test/badserver/test.js",
-    "postinstall": "tessel install-drivers || true"
+    "postinstall": "tessel install-drivers || true; tessel create-config;"
   },
   "bin": {
     "tessel": "./bin/tessel.js"
@@ -34,6 +34,7 @@
     "mkdirp": "~0.3.5",
     "my-local-ip": "~1.0.0",
     "nomnom": "~1.6.2",
+    "platform-tool": "^0.2.2",
     "read": "^1.0.5",
     "request": "~2.33.0",
     "semver": "^2.3.0",
