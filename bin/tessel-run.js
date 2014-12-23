@@ -88,6 +88,10 @@ var argv = require("nomnom")
     default: true,
     help: 'Precompile JS into bytecode'
   })
+  .option('env', {
+    abbr: 'e',
+    help: 'Pass a non-default environment variable file location'
+  })
   .parse();
 
 argv.verbose = !argv.quiet;
@@ -195,6 +199,7 @@ common.controller({stop: true}, function (err, client) {
     client.run(pushpath, ['tessel', pushpath].concat(argv.arguments || []), {
       single: argv.single,
       compileBytecode: argv.bytecode,
+      env: argv.env
     }, function () {
       // script-start emitted.
       logs.info('Running script...');
